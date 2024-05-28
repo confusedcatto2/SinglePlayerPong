@@ -23,9 +23,9 @@ Objective:
 The main objective is that the ball must not touch the bottom of the screen. The ball can bounce on the walls, the roof and the paddle.
 
 Controls: 
-Tha paddle can be controlled with the 'A' and 'D' keys or clicking on the screen with the left mouse button. It moves with a constant speed and stops at the edge of the game area.
+The paddle can be controlled with the 'A' and 'D' keys or clicking on the screen with the left mouse button. It moves with a constant speed and stops at the edge of the game area.
 
-Points: Every bounce is worth one point. The ball does not speed up, it moves with a constant speed. The angle of the boune is determined randomly.
+Points: Every bounce is worth one point. The ball does not speed up, it moves with a constant speed. The angle of the bounce  is determined randomly.
 
 Images from the game:
 
