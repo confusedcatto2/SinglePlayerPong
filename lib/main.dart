@@ -4,6 +4,8 @@ import 'package:singleplayerpong/ui/main_menu/MainMenu.dart';
 import 'package:singleplayerpong/ui/scoresceen/ScoreScreen.dart';
 import 'package:singleplayerpong/ui/gamescreen/GameScreen.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:desktop_window/desktop_window.dart';
+import 'dart:io' show Platform;
 
 
 void main() async {
@@ -11,6 +13,22 @@ void main() async {
 
   // Initialize the window manager
   await windowManager.ensureInitialized();
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    final Size screenSize = await DesktopWindow.getWindowSize();
+
+    // Set the desired percentage of the screen size
+    const double widthPercentage = 0.5;
+    const double heightPercentage = 1;
+
+    // Calculate the window size based on the screen size percentage
+    final double windowWidth = screenSize.width * widthPercentage;
+    final double windowHeight = screenSize.height * heightPercentage;
+
+    // Set the window size and disable resizing
+    await DesktopWindow.setWindowSize(Size(windowWidth, windowHeight));
+    await DesktopWindow.setMinWindowSize(Size(windowWidth - 1, windowHeight - 1));
+    await DesktopWindow.setMaxWindowSize(Size(windowWidth + 1, windowHeight + 1));
+  }
   WindowOptions windowOptions = const WindowOptions(
     title: 'Singeplayer Pong',
   );
